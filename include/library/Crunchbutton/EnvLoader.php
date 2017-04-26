@@ -21,11 +21,17 @@ class Crunchbutton_EnvLoader {
 				return;
 			}
 
-			foreach ($parts as $part) {
+			foreach ($parts as $k => $part) {
+				if ($k == count($parts)-1) {
+					$field->{$part} = $_ENV[$key];
+					break;
+				}
+
+				if (!$field->{$part}) {
+					$field->{$part} = new Cana_Model;
+				}
 				$field = $field->{$part};
 			}
-
-			$field = $_ENV[$key];
 		}
 
 		c::config($config);
