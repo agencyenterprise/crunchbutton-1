@@ -7,8 +7,14 @@
 class Crunchbutton_EnvLoader {
 	public static function load() {
 		$map = [
-			'TESTING_KEY' => 'test.key',
-			'ENCRYPTION_KEY' => 'crypt.key'
+			'ENCRYPTION_KEY' => 'crypt.key',
+			'PHAXIO_KEY' => 'phaxio.live.key',
+			'PHAXIO_SECRET' => 'phaxio.live.secret',
+			'TWILIO_SID' => 'twilio.live.sid',
+			'TWILIO_TOKEN' => 'twilio.live.token',
+			'TWILIO_HOSTNAME' => 'twilio.live.hostname',
+			'STRIPE_PUBLIC' => 'stripe.live.public',
+			'STRIPE_SECRET' => 'stripe.live.secret'
 		];
 		$config = c::config();
 
