@@ -1,0 +1,202 @@
+
+<div class="snap-drawers static-nav-viewport loggedout-hideable" ng-controller="SideMenuCtrl">
+	<div class="snap-drawer snap-drawer-left side-menu" id="side-menu">
+
+		<div class="pushabutton"></div>
+		<ul>
+			<li ng-click="navigation.link('/splash', 'instant', true)" ng-if="!account.user.id_user" ng-class="{'nav-active': (navigation.page == 'splash')}">
+				<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
+					<tr>
+						<td class="side-menu-icon"><i class="fa fa-rocket"></i></td>
+						<td class="side-menu-label">Get Started</a></td>
+					</tr>
+				</table>
+			</li>
+			<li ng-click="navigation.link('/food-delivery', 'instant', true)" ng-if="account.user.id_user" ng-class="{'nav-active': (navigation.page == 'restaurants')}">
+				<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
+					<tr>
+						<td class="side-menu-icon"><i class="fa fa-cutlery"></i></td>
+						<td class="side-menu-label">Restaurants</a></td>
+					</tr>
+				</table>
+			</li>
+			<li ng-if="account.user.id_user && account.user.name" ng-click="navigation.link('/orders', 'instant', true)" ng-class="{'nav-active': (navigation.page == 'orders')}">
+				<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
+					<tr>
+						<td class="side-menu-icon"><i class="fa fa-user"></i></td>
+						<td class="side-menu-label">Account</a></td>
+					</tr>
+				</table>
+			</li>
+			<li ng-click="navigation.link('/location', 'instant', true)" ng-if="account.user.id_user" ng-class="{'nav-active': (navigation.page == 'location')}">
+				<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
+					<tr>
+						<td class="side-menu-icon"><i class="fa fa-map-marker"></i></td>
+						<td class="side-menu-label">Change Location</a></td>
+					</tr>
+				</table>
+			</li>
+
+			<li ng-click="navigation.link('/help', 'instant', true)" ng-class="{'nav-active': (navigation.page == 'help')}">
+				<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
+					<tr>
+						<td class="side-menu-icon"><i class="fa fa-heart"></i></td>
+						<td class="side-menu-label">Help</a></td>
+					</tr>
+				</table>
+			</li>
+			<li ng-if="account.user.id_user" ng-click="navigation.link('/free-food', 'instant', true)" ng-class="{'nav-active': (navigation.page == 'free-food')}">
+				<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
+					<tr>
+						<td class="side-menu-icon"><i class="fa fa-star"></i></td>
+						<td class="side-menu-label">Free food</a></td>
+					</tr>
+				</table>
+			</li>
+			<li ng-click="navigation.link('/work', 'instant', true)" ng-class="{'nav-active': (navigation.page == 'work')}">
+				<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
+					<tr>
+						<td class="side-menu-icon"><i class="fa fa-briefcase"></i></td>
+						<td class="side-menu-label">Work with Us</a></td>
+					</tr>
+				</table>
+			</li>
+			<li ng-if="!account.user.id_user" ng-click="navigation.signin()">
+				<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
+					<tr>
+						<td class="side-menu-icon"><i class="fa fa-sign-in"></i></td>
+						<td class="side-menu-label">Log In</a></td>
+					</tr>
+				</table>
+			</li>
+			<li ng-if="account.user.id_user" ng-click="signout.signout()">
+				<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
+					<tr>
+						<td class="side-menu-icon"><i class="fa fa-sign-out"></i></td>
+						<td class="side-menu-label">Logout</a></td>
+					</tr>
+				</table>
+			</li>
+
+			<li ng-click="test.card()" ng-if="debug()">
+				<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
+					<tr>
+						<td class="side-menu-icon"><i class="fa fa-circle-o"></i></td>
+						<td class="side-menu-label">TEST: card</a></td>
+					</tr>
+				</table>
+			</li>
+			<li ng-click="test.clearloc()" ng-if="debug()">
+				<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
+					<tr>
+						<td class="side-menu-icon"><i class="fa fa-circle-o"></i></td>
+						<td class="side-menu-label">TEST: clear loc</a></td>
+					</tr>
+				</table>
+			</li>
+			<li ng-click="test.reload()" ng-if="debug()">
+				<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
+					<tr>
+						<td class="side-menu-icon"><i class="fa fa-circle-o"></i></td>
+						<td class="side-menu-label">TEST: reload page</a></td>
+					</tr>
+				</table>
+			</li>
+		</ul>
+	</div>
+	<div class="snap-drawer snap-drawer-right side-menu"></div>
+</div>
+
+<div class="wrapper static-nav-viewport loggedout-hideable">
+
+	<div id="snap-content" class="snap-content">
+		<div class="navs fixed" data-position="fixed" ng-controller="MainHeaderCtrl">
+
+			<div class="nav nav-top">
+				<div class="content">
+					<div class="hide-before-init dropdown dropdown-tip" ng-show="menudropdown">
+						<ul class="dropdown-menu">
+
+							<li><a ng-click="test.card()" ng-show="debug()"><i class="fa fa-circle-o"></i>test card</a></li>
+							<li><a ng-click="test.clearloc()" ng-show="debug()"><i class="fa fa-circle-o"></i>clear location</a></li>
+							<li><a ng-click="test.reload()" ng-show="debug()"><i class="fa fa-circle-o"></i>reload page</a></li>
+							<li class="dropdown-divider" ng-show="debug()"></li>
+					    </ul>
+					</div>
+
+					<div title="Menu" class="menu side" ng-click="navigation.menu()" ng-if="navigation.buttons.menu"></div>
+					<div title="Back" ng-if="navigation.buttons.back" class="nav-back hide-before-init" ng-click="back()"></div>
+
+					<div title="Cart" class="nav-cart hide-before-init" ng-click="cartScroll(order.restaurant.permalink)" ng-if="order.info.totalItems && ((navigation.page == 'restaurant' && ( order.restaurant._open || order.restaurant.force_pre_order ) ) || navigation.page != 'restaurant')" ng-class="{ 'animation-blink' : cart.blink}">
+						<div class="fa fa-shopping-cart"></div>
+						<div class="nav-cart-count">{{order.info.totalItems}}</div>
+					</div>
+
+					<div class="desktop-top-nav hide-mobile hide-before-init">
+					<div>
+					</div>
+						<a ng-if="config.menu_item_1_label && config.menu_item_1_url" href="{{config.menu_item_1_url}}"><u>{{config.menu_item_1_label}}</u></a>
+						<a href="/help">Help</a>
+						<a href="/orders" ng-if="account.user.id_user">Account</a>
+						<a ng-click="navigation.signin()" ng-if="!account.user.id_user">Log In</a>
+						<a ng-toggle="menudropdown" ng-show="debug()"><i class="fa fa-bug"></i></a>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="hide-desktop button-bottom-wrapper fixed">
+			<div class="button-pushable" ng-show="navigation.order.form.name || navigation.order.form.phone"><button class="button orange get-food ani-all" ng-click="navigation.order.submit();"><div>Submit Order</div></button></div>
+			<div class="button-pushable" ng-show="!navigation.order.form.name && !navigation.order.form.phone"><button class="button orange get-food ani-all" ng-click="navigation.order.checkout();"><div>Checkout</div></button></div>
+		</div>
+
+		<div class="snap-content-inner bg" ng-scroll-position>
+			<div class="content" ng-scroll-spy>
+				<div ng-view id="ng-view" ng-class="animationClass"><?=$this->content?></div>
+			</div>
+
+			<div class="divider"></div>
+
+
+
+		</div>
+
+
+	</div>
+
+	<div class="divider"></div>
+</div>
+
+<div class="footer hide-before-init">
+	<div class="content-padding">
+		<div class="footer-columns">
+		<div class="copyright">&copy <?=date('Y')?> <a href="/">One Button Wenzel</a></div>
+		<div class="divider"></div>
+	</div>
+</div>
+
+<div ng-include="'/assets/view/notification.alert.html'"></div>
+<div ng-include="'/assets/view/notification.remote.html'"></div>
+<div ng-include="'/assets/view/restaurant.closed.html'"></div>
+<div ng-include="'/assets/view/account.html'"></div>
+<div ng-include="'/assets/view/account.reset.html'"></div>
+<div ng-include="'/assets/view/restaurant.closed.inline.html'"></div>
+<div ng-include="'/assets/view/referral.html'"></div>
+<div ng-include="'/assets/view/giftcard.html'"></div>
+<div ng-include="'/assets/view/support.html'"></div>
+<div ng-include="'/assets/view/connection.error.html'"></div>
+
+<div id="fb-root"></div>
+<div class="is-ui2"></div>
+<div class="body-loader hide-after-init"></div>
+<div class="preload-home"></div>
+
+<div class="location-overpull-preload-one"></div>
+<div class="location-overpull-preload-two"></div>
+<div class="location-overpull-preload-three"></div>
+
+<audio id="crunch">
+	<source src="/assets/audio/crunch.mp3"></source>
+	<source src="/assets/audio/crunch.ogg"></source>
+</audio>
