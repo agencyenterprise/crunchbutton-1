@@ -103,6 +103,7 @@
 				</table>
 			</li>
 		</ul>
+
 	</div>
 	<div class="snap-drawer snap-drawer-right side-menu"></div>
 </div>
@@ -135,7 +136,6 @@
 					<div class="desktop-top-nav hide-mobile hide-before-init">
 					<div>
 					</div>
-						<a ng-if="config.menu_item_1_label && config.menu_item_1_url" href="{{config.menu_item_1_url}}"><u>{{config.menu_item_1_label}}</u></a>
 						<a href="/help">Help</a>
 						<a href="/orders" ng-if="account.user.id_user">Account</a>
 						<a ng-click="navigation.signin()" ng-if="!account.user.id_user">Log In</a>
