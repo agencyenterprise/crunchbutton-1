@@ -19,7 +19,7 @@ if (top.frames.length != 0 || window != top || top.location != location) {
 var App = {
 	version: 'web',
 	tagline: '',
-	service: '/api/',
+	service: 'https://crunchbutton.com/api/',
 	logService: 'https://log.crunchbutton.com/api/',
 	server: '/',
 	imgServer: '/',
