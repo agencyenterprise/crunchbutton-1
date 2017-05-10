@@ -22,7 +22,7 @@ window.twttr = ( function(d, s, id) {
 </script>
 <!-- Payment stuff -->
 <script type="text/javascript" src="//js.stripe.com/v2/"></script>
-
+<script type="text/javascript" src="/assets/js/howler-min.js"></script>
 <? if (c::config()->bundle) : ?>
 	<? $js = c::config()->site->config('s3-bundle')->val() ? 'https://'.c::config()->s3->buckets->build->cache.'/'.$_ENV['HEROKU_SLUG_COMMIT'].'/js/crunchbutton.js' : '/assets/js/bundle.js?v='.getenv('HEROKU_SLUG_COMMIT').'&s=app' ?>
 	<script src="<?=$js?>"></script>

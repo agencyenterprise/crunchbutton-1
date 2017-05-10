@@ -1367,11 +1367,12 @@ App.playAudio = function(audio) {
 	if (App.isCordova) {
 		window.plugins.NativeAudio.play(audio);
 	} else {
-		var sound = new Howl({
-			urls: ['/' + path + audio + '.mp3', path + audio + '.ogg']
-		}).play();
+		if (window.Howl) {
+			var sound = new Howl({
+				urls: ['/' + path + audio + '.mp3', path + audio + '.ogg']
+			}).play();
+		}
 	}
-
 }
 
 App.vibrate = function() {
