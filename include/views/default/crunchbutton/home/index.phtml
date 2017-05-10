@@ -28,21 +28,21 @@
 */ ?>
 <?
 	$bot = c::app()->isBot() || $_REQUEST['__seo'];
-	
+
 ?>
 
 <div class="top-pad"></div>
 
 <div class="home-text">
-	
+
 	<? if ($this->restaurant->id_restaurant) : ?>
 
 		<?
-			$this->title = $this->restaurant->name.' | '.($this->community->id_community ? $this->community->name : 'Local').' Food Delivery | Order from '.($this->community->id_community && $this->community->name_alt() ? $this->community->name_alt() : 'Local').' Restaurants | Crunchbutton';
+			$this->title = $this->restaurant->name.' | '.($this->community->id_community ? $this->community->name : 'Local').' Food Delivery | Order from '.($this->community->id_community && $this->community->name_alt() ? $this->community->name_alt() : 'Local').' Restaurants | One Button Wenzel';
 		?>
 
 		<? if ($bot) : ?>
-		
+
 			<div class="restaurants-bubble-wrap">
 				<div class="bubble-tail bubble-tail-green">
 					<div class="text">
@@ -66,18 +66,18 @@
 							<a href="/" itemprop="url">
 								<span itemprop="title">Crunchbutton</span>
 							</a>
-						</span> &raquo; 
+						</span> &raquo;
 						<span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
 							<a href="/food-delivery" itemprop="url">
 								<span itemprop="title">Food Delivery</span>
 							</a>
-						</span> &raquo; 
+						</span> &raquo;
 						<? if ($this->community->id_community) : ?>
 							<span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
 								<a href="/<?=$this->community->permalink?>" itemprop="url">
 									<span itemprop="title"><?=$this->community->name?></span>
 								</a>
-							</span> &raquo; 
+							</span> &raquo;
 						<? endif ; ?>
 						<span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
 							<a href="/<?=$this->community->permalink?>/<?=$this->restaurant->permalink?>" itemprop="url">
@@ -86,13 +86,13 @@
 						</span>
 					</div>
 				</div>
-	
+
 				<div itemscope itemtype="http://schema.org/restaurant">
-			
+
 					<link itemprop="url" href="/<?=$this->community->permalink?>/<?=$this->restaurant->permalink?>"/>
 					<link itemprop="image" href="<?=$this->restaurant->image() ? $this->restaurant->publicImagePath().$this->restaurant->image()->getFileName() : ''?>"/>
 					<link itemprop="photo" href="<?=$this->restaurant->image() ? $this->restaurant->publicImagePath().$this->restaurant->image()->getFileName() : ''?>"/>
-					
+
 					<br><br>
 					<img width="100%" src="<?=$this->restaurant->image() ? $this->restaurant->publicImagePath().$this->restaurant->image()->getFileName() : ''?>" title="<?=$this->restaurant->name?>" alt="<?=$this->restaurant->name?>">
 
@@ -101,16 +101,16 @@
 						<meta itemprop="longitude" content="<?=$this->restaurant->loc_lat?>">
 						<meta itemprop="latitude" content="<?=$this->restaurant->loc_long?>">
 					</div>
-			
+
 					<div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
 						<meta itemprop="ratingValue" content="5.0">
 						<meta itemprop="reviewCount" content="<?=$this->restaurant->ratingCount()?>">
 					</div>
-	
+
 					<? foreach ($this->restaurant->categories() as $category) : ?>
 						<br><h4><?=$category->name()?></h4>
 						<ul date-id_category="1">
-	
+
 							<? foreach ($category->dishes() as $dish) : ?>
 								<li itemscope itemtype="http://data-vocabulary.org/Product">
 									<meta itemprop="image" content="http://<?=$_SERVER['HTTP_HOST']?><?=$this->restaurant->image() ? $this->restaurant->publicImagePath().$this->restaurant->image()->getFileName() : ''?>" />
@@ -119,14 +119,14 @@
 									<? endif ; ?>
 									<meta itemprop="category" content="<?=$category->name()?>" />
 									<meta itemprop="availability" content="in_stock" />
-	
+
 									<? if ($dish->ratingCount()) : ?>
 										<span itemprop="review" itemscope itemtype="http://data-vocabulary.org/Review-aggregate">
 											<meta itemprop="rating" content="5">
 											<meta itemprop="count" content="<?=$dish->ratingCount()?>">
 										</span>
 									<? endif ; ?>
-	
+
 									<p>
 										<a href="#<?=$dish->name?>" data-id_dish="1">
 											<span itemprop="name"><b><?=$dish->name?></b></span>&nbsp;&nbsp;$<span itemprop="price"><?=number_format($dish->price,2)?></span>
@@ -142,7 +142,7 @@
 		<? endif ; ?>
 	<? elseif ($this->community->id_community) : ?>
 		<?
-			$this->title = $this->community->name.' Food Delivery | Order Food from '.($this->community->name_alt() ? $this->community->name_alt() : 'Local').' Restaurants | Crunchbutton';
+			$this->title = $this->community->name.' Food Delivery | Order Food from '.($this->community->name_alt() ? $this->community->name_alt() : 'Local').' Restaurants | One Button Wenzel';
 		?>
 
 		<div class="restaurants-bubble-wrap">
@@ -160,7 +160,7 @@
 					<h2>Choose a <?=$this->community->name_alt?> restaurant:</h2>
 				</div>
 				<div class="divider"></div>
-			<? endif ; ?>		
+			<? endif ; ?>
 		</div>
 
 		<? if ($bot) : ?>
@@ -171,12 +171,12 @@
 						<a href="/" itemprop="url">
 							<span itemprop="title">Crunchbutton</span>
 						</a>
-					</span> &raquo; 
+					</span> &raquo;
 					<span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
 						<a href="/food-delivery" itemprop="url">
 							<span itemprop="title">Order Food</span>
 						</a>
-					</span> &raquo; 
+					</span> &raquo;
 					<span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
 						<a href="/<?=$this->community->permalink?>" itemprop="url">
 							<span itemprop="title"><?=$this->community->name?></span>
@@ -191,7 +191,7 @@
 					We go door to door signing up only the restaurants that the community really loves. We make sure that Crunchbutton has only <b>the best restaurants</b> and delivery food. Don'f forget the dessert!
 					<br><br>
 				</p>
-				
+
 				<h4>The best restaurants, curated by our expert team of reps</h4>
 				<p>
 					<? $restaurants = Restaurant::byRange([
@@ -206,18 +206,18 @@
 						<br><br>
 					<? endif; ?>
 					<? endforeach ; ?>
-					
+
 				</p>
-				
+
 			</div>
 
 		<? endif ; ?>
 
 	<? else : ?>
 		<?
-			$this->title = 'Food Delivery | Order from Local Restaurants | Crunchbutton';
+			$this->title = 'Food Delivery | Order from Local Restaurants | One Button Wenzel';
 		?>
-	
+
 				<? /*
 				<div><!--adding the search bar here-->
 				<script>
@@ -235,7 +235,7 @@
 <gcse:search></gcse:search>
 				</div>
 				<? */ ?>
-	
+
 	<? /*
 		<div class="restaurants-bubble-wrap">
 			<div class="bubble-tail bubble-tail-green">
@@ -244,7 +244,7 @@
 				</div>
 			</div>
 			<div class="restaurants-orange"></div>
-			<div class="divider"></div>			
+			<div class="divider"></div>
 			<? if ($bot) : ?>
 				<div class="restaurants-tagline">
 					<h1>Order the top local delivery food.</h1>
@@ -253,9 +253,9 @@
 				<div class="divider"></div>
 			<? endif ; ?>
 		</div>
-		
+
 		*/?>
-	
+
 		<div class="stamp-loader">
 			<div class="stamp-loader-button"></div>
 			<div class="stamp-loader-words"></div>
@@ -265,40 +265,40 @@
 			<div class="content-padding">
 				<h4>The best curated menus for your community or college</h4>
 				<p>
-					Get the best local delivery food from 
-					<? foreach (Community_Alias::q('select * from community WHERE name not LIKE "%test%"') as $community) : ?> 
-						
-						<b><a href="/<?=$community->permalink?>"><?=$community->name?></a></b>, 
-					
+					Get the best local delivery food from
+					<? foreach (Community_Alias::q('select * from community WHERE name not LIKE "%test%"') as $community) : ?>
+
+						<b><a href="/<?=$community->permalink?>"><?=$community->name?></a></b>,
+
 					<? endforeach ; ?>
 					.
 					<br /><br />
 				</p>
-				
+
 				<h4>Local delivery food on your iPhone, Android, or mobile device</h4>
 				<p>
-					Download <a href="https://itunes.apple.com/app/id721780390" target="_blank">Crunchbutton on the App Store</a> on iTunes for iPhone. 
+					Download <a href="https://itunes.apple.com/app/id721780390" target="_blank">Crunchbutton on the App Store</a> on iTunes for iPhone.
 					<br /><br />
 				</p>
 
 				<h4>Order <b>delivery</b> &amp; <b>takeout</b> using Crunchbutton on your iPhone, Android, or computer.</h4>
 				<p>
-					Order a <b>Wenzel</b>, your favorite <b>Pizza</b>, some General Tso's Chicken, or something else! Customize the toppings on your pizza and have it delivered to your home. Pepperoni, sausage, cheese, sauce, whatever! 
-					Don't want pizza? How about other <b>Italian food</b> like pasta, or a sandwich? Build your own sandwich, or order a <b>Wenzel</b>. 
+					Order a <b>Wenzel</b>, your favorite <b>Pizza</b>, some General Tso's Chicken, or something else! Customize the toppings on your pizza and have it delivered to your home. Pepperoni, sausage, cheese, sauce, whatever!
+					Don't want pizza? How about other <b>Italian food</b> like pasta, or a sandwich? Build your own sandwich, or order a <b>Wenzel</b>.
 					We also have lots of <b>wings</b>, BBQ wings, spicy wings, hot wings, teriyaki wings.
 					Or how about some appetizers, or deserts?
 					<br /><br />
 				</p>
-				
+
 				<h4>All sorts of junk food late night!</h4>
 				<p>
-					Love <b>Chinese food</b> or <b>asian food</b>? Have some Pad Thai, or fried rice, or egg rolls. 
-					O! Don't forget <b>sushi</b>! Get some sushi delivered online. 
+					Love <b>Chinese food</b> or <b>asian food</b>? Have some Pad Thai, or fried rice, or egg rolls.
+					O! Don't forget <b>sushi</b>! Get some sushi delivered online.
 					<b> Mediterranean food</b>! Falafel, soup, hummus, Grape Leaves, and some Baba Ghannoush!
 					<br /><br />
 				</p>
 			</div>
-	
+
 			<div itemscope itemtype="http://schema.org/localbusiness">
 				<link itemprop="url" href="/"/>
 				<link itemprop="image" href="/assets/images/appicon.png"/>
@@ -307,7 +307,7 @@
 			</div>
 
 		<? endif ; ?>
-	
+
 	<? endif ; ?>
 </div>
 

@@ -196,7 +196,7 @@ class Crunchbutton_App extends Cana_App {
 		}
 
 		// debug shit
-		if ($_REQUEST['_bundle']) {
+		if ($_REQUEST['_bundle'] || $_ENV['bundle'] == false || $_ENV['bundle'] == 'false') {
 			$config->bundle = true;
 			$config->viewExport = true;
 		}

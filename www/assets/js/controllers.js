@@ -611,7 +611,7 @@ NGApp.controller( 'RestaurantsCtrl', function ( $scope, $rootScope, $http, $loca
 						var tagline = '';
 					}
 
-					document.title = ( city || '' ) + ' Food Delivery | Order Food from ' + (city || 'Local') + ' Restaurants | Crunchbutton';
+					document.title = ( city || '' ) + ' Food Delivery | Order Food from ' + (city || 'Local') + ' Restaurants | One Button Wenzel';
 
 					$scope.restaurants = restaurants.sort();
 					checkOpen();
@@ -717,7 +717,7 @@ NGApp.controller( 'LocationCtrl', function ($scope, $http, $location, $rootScope
 		$scope.location.init();
 	}
 
-	document.title = 'Food Delivery | Crunchbutton';
+	document.title = 'Food Delivery | One Button Wenzel';
 
 	$scope.yourArea = $scope.location.position.pos().city() || 'your area';
 
@@ -1385,7 +1385,7 @@ NGApp.controller( 'RestaurantCtrl', function ($scope, $http, $routeParams, $root
 			$scope.open = true;
 		}
 
-		document.title = $scope.restaurant.name + ' | Food Delivery | Order from ' + ( community.name  ? community.name  : 'Local') + ' Restaurants | Crunchbutton';
+		document.title = $scope.restaurant.name + ' | Food Delivery | Order from ' + ( community.name  ? community.name  : 'Local') + ' Restaurants | One Button Wenzel';
 
 		$scope.show_suggestions = true;
 
