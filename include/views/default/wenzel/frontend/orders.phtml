@@ -1,0 +1,81 @@
+<div class="top-pad"></div>
+
+<div class="content-padding">
+
+	<div class="user-account-credit col-box">
+		<div class="two-col">
+			<div class="col-box">
+				<div class="two-col">
+					<button class="button green button-logout" ng-click="navigation.link('/profile','push')" ng-if="account.user.id_user">Your profile</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="divider"></div>
+	<br><br><br>
+	<div ng-show="orders.list">
+		<? /* You know, you can reorder any of your previous orders by taping on one of them, then reordering from the next page. Try it! */ ?>
+		<p><span class="account-your-orders">Your Orders</span><br><br></p>
+	</div>
+
+	<div ng-show="orders.list.length == 0">
+		<p>After you place orders, you'll see them all right here. </p>
+		<h4><a href="/food-delivery" ng-click="navigation.link('/food-delivery')">Place an order</a></h4>
+		<br /><br />
+	</div>
+
+	<div ng-show="orders.list && orders.list.length > 0">
+
+		<ul class="orders-list col-box">
+			<li ng-repeat="order in orders.list" class="order-item-wrap" ng-click="navigation.link('/order/' + order.id, 'push')">
+				<div class="order-item">
+					<div class="order-date">
+						<div class="order-month">{{order._date.getMonthNameShort()}}</div>
+						<div class="order-day">{{order._date.getDate().pad(2)}}</div>
+					</div>
+					<div class="order-details">
+						<div class="order-name" ng-click="$event.preventDefault(); $event.stopPropagation(); orders.restaurant(order._restaurant_permalink);">
+							{{order._restaurant_name}}
+						</div>
+						<div class="divider"></div>
+						<div class="order-summary">
+							{{order.summary}}
+						</div>
+					</div>
+
+					<div class="order-link fa fa-arrow-circle-right"></div>
+				</div>
+				<div class="divider"></div>
+			</li>
+		</ul>
+	</div>
+
+
+	<div ng-show="credit && credit > 0" class="gift-card-balance">
+		<div class="divider"></div>
+		<div class="bubble-tail bubble-tail-green bubble-animated noselect">
+			<div class="text" ng-switch="pushMessage">
+				You have a ${{credit}} gift card.
+			</div>
+			<div class="bubble-tail-spacer"></div>
+		</div>
+		<br>
+		<div class="gift-card-gorillia"></div>
+		<div class="divider"></div>
+	</div>
+
+	<div class="divider spacer-two-two"></div><br><br>
+
+	<div class="user-account-credit col-box">
+		<div class="two-col">
+			<div class="col-box">
+				<div class="two-col">
+					<button class="button lightorange button-logout" ng-click="signout()" ng-if="account.user.id_user">Log Out</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	</div>
+</div>

@@ -1,0 +1,104 @@
+<div class="top-pad"></div>
+
+<div ng-if="!order.id">
+	<div class="content-padding">
+		<div class="ajax-loader-teal"></div>
+		<br />
+	</div>
+</div>
+
+<div ng-if="order.id">
+
+
+	<div class="">
+
+		<div class="content-padding">
+			<div class="order-tagline"><p>
+				<b>Order placed!&nbsp;</b>
+			</p></div>
+		</div>
+
+		<div class="spacer-two-two"></div>
+
+		<div class="content-padding-desktop">
+
+			<div class="content-padding-mobile">
+
+				<div ng-hide="account.user.has_auth">
+					<div class="order-buttons">
+
+						<div class="button-pushable">
+							<button class="button lightorange" ng-click="modal.signupOpen();">Create an account</button>
+						</div>
+						<br />
+					</div>
+
+				</div>
+
+				<div ng-show="account.user.has_auth">
+
+					<div class="order-buttons">
+						<p ng-if="account.user.points.free_delivery_message && account.user.points.free_delivery" class="delivery-free order-delivery-free">
+							You have <strong>{{account.user.points.show}}</strong> points! The next delivery fee is on us.
+						</p>
+						<div ng-if="!account.user.points.free_delivery_message">
+							<p class="delivery-free points-earned-message">
+								You just earned <strong>{{order.reward.points}}</strong> points!
+								<span ng-if="!account.user.points.free_delivery_message">
+									<strong> {{account.user.points.free_delivery}}</strong> points gets you a free delivery.
+								</span>
+							</p>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+
+
+		</div>
+
+		<div class="divider dots"></div>
+		<div class="spacer-two-two"></div>
+
+		<div class="content-padding-desktop">
+			<div class="content-padding-mobile">
+
+				<div class="order-bubble-wrap">
+					<div class="bubble-tail bubble-tail-green bubble-animated">
+						<div class="text" ng-switch="cherryMessage">
+							<span ng-switch-when="1" class="single-line">Yay! Food!</span>
+							<span ng-switch-when="2" class="single-line">It's on it's way.</span>
+							<span ng-switch-when="3" class="small">Questions? Please contact the restaurant.</span>
+							<span ng-switch-when="4">Feedback? Send us a text.</span>
+							<span ng-switch-when="5">We'd love to hear your thoughts...</span>
+							<span ng-switch-when="6">suggestions, or even complaints!</span>
+							<span ng-switch-when="7">The customer is always right!</span>
+							<span class="single-line" ng-switch-when="8"><i class="fa fa-heart"></i> <i class="fa fa-heart"></i> <i class="fa fa-heart"></i></span>
+							<span ng-switch-default class="single-line"><b>Sit back &amp relax!</b></span>
+						</div>
+						<div class="bubble-tail-spacer"></div>
+					</div>
+					<div class="hot-dog-relax animated-resize" ng-instant="cherryMessage = (cherryMessage > 7 ? 0 : (cherryMessage + 1))" instant-pass-thru></div>
+					<div class="divider"></div>
+				</div>
+			</div>
+
+			<div class="divider"></div>
+
+			<div class="spacer-two-two"></div>
+
+		</div>
+
+		<div class="content-padding">
+			<p class="center-text">
+				For more info about your order, view <a ng-click="receipt()">Order Details</a>.
+			</p>
+		</div>
+
+
+
+
+	</div>
+
+</div>
