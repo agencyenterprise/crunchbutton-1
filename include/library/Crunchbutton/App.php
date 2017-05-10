@@ -408,8 +408,6 @@ class Crunchbutton_App extends Cana_App {
 
 		if (!$this->isCompat()) {
 			$params['layout'] =  'layout/compat';
-		} elseif ($this->isDownloadable() && !$this->isCockpit()) {
-			$params['layout'] =  'layout/download';
 		} else {
 			$params['layout'] =  $this->config()->defaults->layout;
 		}
