@@ -93,36 +93,10 @@
 		<token>_KEY_</token>
 	</github>
 	<facebook>
-		<!-- Daniel's
-		<crunchbutton.localhost>
+		<dom>
 			<app>_KEY_</app>
 			<secret>_KEY_</secret>
-		</crunchbutton.localhost>
-		 -->
-		<crunchbutton.localhost>
-			<app>_KEY_</app>
-			<secret>_KEY_</secret>
-		</crunchbutton.localhost>
-		<seven.localhost>
-			<app>_KEY_</app>
-			<secret>_KEY_</secret>
-		</seven.localhost>
-		<crunchbutton.com>
-			<app>_KEY_</app>
-			<secret>_KEY_</secret>
-		</crunchbutton.com>
-		<beta.crunchr.co>
-			<app>_KEY_</app>
-			<secret>_KEY_</secret>
-		</beta.crunchr.co>
-		<dev.crunchr.co>
-			<app>_KEY_</app>
-			<secret>_KEY_</secret>
-		</dev.crunchr.co>
-		<staging.crunchr.co>
-			<app>_KEY_</app>
-			<secret>_KEY_</secret>
-		</staging.crunchr.co>
+		</dom>
 		<default>
 			<scope>email</scope>
 			<poststatus>
