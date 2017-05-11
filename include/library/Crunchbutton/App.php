@@ -57,7 +57,7 @@ class Crunchbutton_App extends Cana_App {
 		}
 
 		// special settings for live web views
-		if ($db != 'heroku' &&  !$_ENV['DOCKER'] && preg_match('/^cockpit.la|cbtn.io|crunchbutton.com|spicywithdelivery.com$/',$_SERVER['SERVER_NAME']) && !$this->cli && !isset($_REQUEST['__host']) && $_SERVER['SERVER_NAME'] != 'old.cockpit.crunchbutton.com' && $_SERVER['SERVER_NAME'] != 'cockpit.crunchbutton.com') {
+		if ($db != 'heroku' &&  !$_ENV['DOCKER'] && preg_match('/^cockpit.la|cbtn.io|crunchbutton.com|spicywithdelivery.com|onebuttonwenzel.com$/',$_SERVER['SERVER_NAME']) && !$this->cli && !isset($_REQUEST['__host']) && $_SERVER['SERVER_NAME'] != 'old.cockpit.crunchbutton.com' && $_SERVER['SERVER_NAME'] != 'cockpit.crunchbutton.com') {
 			error_reporting(E_ERROR | E_PARSE);
 
 			if ((!$_SERVER['HTTP_X_FORWARDED_PROTO'] && $_SERVER['HTTPS'] != 'on') || ($_SERVER['HTTP_X_FORWARDED_PROTO'] && $_SERVER['HTTP_X_FORWARDED_PROTO'] != 'https')) {
