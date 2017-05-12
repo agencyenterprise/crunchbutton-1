@@ -17,8 +17,8 @@ class Crunchbutton_EnvLoader {
 			'STRIPE_SECRET' => ['stripe.live.secret', 'stripe.dev.secret'],
 			'S3_KEY' => 's3.key',
 			'S3_SECRET' => 's3.secret',
-			'FACEBOOK_APP' => 'facebook.app',
-			'FACEBOOK_SECRET' => 'facebook.secret'
+			'FACEBOOK_APPID' => 'facebook.key.appid',
+			'FACEBOOK_SECRET' => 'facebook.key.secret'
 		];
 		$config = c::config();
 

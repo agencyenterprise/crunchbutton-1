@@ -173,9 +173,9 @@ class Crunchbutton_App extends Cana_App {
 
 
 		// set facebook config by hostname
-		if ($config->facebook->app || $config->facebook->{$_SERVER['SERVER_NAME'] || 'cli'}) {
-			$config->facebook->app = $config->facebook->app || $config->facebook->{$_SERVER['SERVER_NAME'] || 'cli'}->app;
-			$config->facebook->secret = $config->facebook->secret || $config->facebook->{$_SERVER['SERVER_NAME'] || 'cli'}->secret;
+		if ($config->facebook->key->appid || $config->facebook->{$_SERVER['SERVER_NAME'] || 'cli'}) {
+			$config->facebook->app = $config->facebook->key->appid ?? $config->facebook->{$_SERVER['SERVER_NAME'] || 'cli'}->app;
+			$config->facebook->secret = $config->facebook->key->secret ?? $config->facebook->{$_SERVER['SERVER_NAME'] || 'cli'}->secret;
 		}
 
 		$this->config($config);

@@ -51,9 +51,9 @@ if (App) {
 <script type="text/javascript">
 	$(function() {
 		window.fbAsyncInit = function() {
-			console.debug('Init facebook <?=$facebook->app;?>');
+			console.debug('Init facebook <?=$facebook->key->appid;?>');
 			FB.init({
-				appId: '<?=$facebook->app;?>',
+				appId: '<?=c::config()->facebook->appid?>',
 				cookie: true,
 				xfbml: true,
 				oauth: true,
